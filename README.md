@@ -1,6 +1,6 @@
 # CiNvim
 
-A lightweight, fast code editor for competitive programming.
+A lightweight and fast code editor for competitive programming.
 
 ## For Whom Is This Repo For?
 
