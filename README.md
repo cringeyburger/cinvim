@@ -1,11 +1,11 @@
 # CiNvim
 
-A lightweight and fast Neovim code editor for competitive programming.
+A lightweight and fast Neovim code editor built for competitive programming.
 
 ## For Whom Is This Editor For?
 
-Anyone that wants to delve into competitive programming needs a neat and a fast code editor.
-This is an attempt at making exactly that.
+Anyone who wants to delve into competitive programming needs a neat and fast code editor.
+This code editor is an attempt at making precisely that.
 Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and other UX enhancing plugins, **CiNvim** strives to deliver a single platform for all your CP problems.
 **Fun Fact:** `CiNvim` (pronounced `ci-nvim`) comes from joining `Cin` and `Nvim` ;)
 
@@ -15,7 +15,7 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
 
 1. Neovim >= 0.6
 2. `CiNvim` was made for Linux operating systems. It may or may not support Windows.
-3. Install a [Nerdfont](https://www.nerdfonts.com/font-downloads) for your terminal. I personally use [FiraCode Nerd Font](https://github.com/tonsky/FiraCode), which is the default font set in the editor (scroll down to learn to change defaults).
+3. Install a [Nerdfont](https://www.nerdfonts.com/font-downloads) for your terminal. I use [FiraCode Nerd Font](https://github.com/tonsky/FiraCode), which is the default font set in the editor (scroll down to learn to change defaults).
 4. Update packages
 
    ```sh
@@ -67,9 +67,9 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
    **NOTE:** If you cannot find a `.config` or `nvim` folder, create them using `mkdir` command.
 2. Open the editor in your terminal using `nvim` command
    1. You should see all the different plugins, language servers, linters and formatters downloading and installing in a few seconds.
-3. The formatters, `stylua` and `clang-format`, have different settings that make coding slightly incovenient.
-   **For example**, `stylua`, by default, formats `lua` files with `4 space-tab` style, but the language-server `lua_ls` prefers a `2 space` formatting style. This causes harmless but many unnecessary style warnings which distract while coding.
-   **Similarly**, `clang-format` formats `c++` files with a `2 space` style. Unless you prefer that style, we would like to change it to the usual `4 space` formatting style.
+3. The formatters, `stylua` and `clang-format`, have different settings that make coding slightly inconvenient.
+   **For example**, `stylua`, by default, formats `lua` files with a `4 space-tab` style, but the language-server `lua_ls` prefers a `2 space` formatting style. This causes harmless but many unnecessary style warnings that distract while coding.
+   **Similarly**, `clang-format` formats `c++` files with a `2 space` style. We would like to change that style to the usual `4 space` formatting style unless you prefer it.
    1. For `lua` files:
         1. After installation, create a `.stylua.toml` file at `~/.config/nvim/.stylua.toml` and enter the following lines:
 
@@ -100,7 +100,7 @@ This will download and reinstall all the plugins.
 
 ### Additional Notes
 
-To change default font, go to `...nvim/lua/config/options.lua`, you can change `guifont` to whatever you like.
+To change the default font, go to `...nvim/lua/config/options.lua`; you can change `guifont` to whatever you like.
 
 **Please** look into `/config/keymaps.lua` and explore `whichkey` to learn more about the keybindings.
 
