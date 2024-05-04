@@ -208,7 +208,6 @@ keymap("n", "<leader>cr", "<cmd>CompetiTest run<CR>", { desc = "Run Testcases" }
 keymap("n", "<leader>cit", "<cmd>CompetiTest receive testcases<CR>", { desc = "Receive testcases" })
 keymap("n", "<leader>cip", "<cmd>CompetiTest receive problem<CR>", { desc = "Receive problem" })
 keymap("n", "<leader>cic", "<cmd>CompetiTest receive contest<CR>", { desc = "Receive contest" })
-
 ---------------------------------- Insert Mode --------------------------
 
 -- Rename

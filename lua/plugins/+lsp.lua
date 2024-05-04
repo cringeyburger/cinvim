@@ -174,6 +174,8 @@ return {
           "isort",
           "black",
           "ruff",
+          "prettier",
+          "jsonlint",
         },
       })
     end,
@@ -317,6 +319,7 @@ return {
           cpp = { "clang-format" },
           lua = { "stylua" },
           python = { "isort", "black" },
+          json = { "prettier" },
         },
         format_on_save = {
           lsp_fallback = true, -- if a formatter isn't available, use lsp
@@ -343,6 +346,7 @@ return {
         cpp = { "cpplint" },
         lua = { "luacheck" },
         python = { "ruff" },
+        json = { "jsonlint" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -203,13 +203,13 @@ return {
       }
 
       local diagnostics = {
-			"diagnostics",
-			sources = { "nvim_diagnostic" },
-			symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning, info = icons.diagnostics.Information },
-			colored = true,
-			update_in_insert = false,
-			always_visible = true,
-		  }
+        "diagnostics",
+        sources = { "nvim_diagnostic" },
+        symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning, info = icons.diagnostics.Information },
+        colored = true,
+        update_in_insert = false,
+        always_visible = true,
+      }
 
       local mode = {
         "mode",
@@ -316,13 +316,6 @@ return {
         extensions = { "quickfix", "nvim-tree" },
       }
 		  lualine.setup(config)
-    end,
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      local colorizer = require("colorizer")
-      colorizer.setup()
     end,
   },
   {

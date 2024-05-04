@@ -46,7 +46,11 @@ return {
       "saadparwaiz1/cmp_luasnip", -- snippet completions
       "hrsh7th/cmp-nvim-lsp",
       -- snippets
-      "L3MON4D3/LuaSnip", --snippet engine
+      {
+        "L3MON4D3/LuaSnip", --snippet engine
+        version = "v2.*",
+        build = "make install_jsregexp",
+      },
       "rafamadriz/friendly-snippets", -- a bunch of snippets to use
       "chrisgrieser/cmp-nerdfont", -- font
     },
@@ -59,7 +63,7 @@ return {
 
       local kind_icons = require("config.icons").kind
 
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dsa/snippets" })
       require("luasnip.loaders.from_snipmate").lazy_load()
 
       local formatting_style = {
@@ -143,8 +147,8 @@ return {
         },
         formatting = formatting_style,
         sources = {
-          { name = "nvim_lsp" },
           { name = "luasnip" },
+          { name = "nvim_lsp" },
           { name = "buffer" },
           { name = "path" },
         },
@@ -704,7 +708,7 @@ return {
     end,
   },
   {
-    "phaazon/hop.nvim",
+    "hadronized/hop.nvim",
     config = function()
       local hop = require("hop")
 

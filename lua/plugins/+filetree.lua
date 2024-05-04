@@ -1,5 +1,5 @@
 return {
-  "kyazdani42/nvim-tree.lua", -- tree view
+  "nvim-tree/nvim-tree.lua", -- tree view
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("nvim-web-devicons").setup({
