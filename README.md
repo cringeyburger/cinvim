@@ -1,10 +1,10 @@
 # CiNvim
 
-A lightweight and fast code editor for competitive programming.
+A lightweight and fast Neovim code editor for competitive programming.
 
-## For Whom Is This Repo For?
+## For Whom Is This Editor For?
 
-Anyone that wants to delve into competitive programming needs a neat and super fast code editor.
+Anyone that wants to delve into competitive programming needs a neat and a fast code editor.
 This is an attempt at making exactly that.
 Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and other UX enhancing plugins, **CiNvim** strives to deliver a single platform for all your CP problems.
 **Fun Fact:** `CiNvim` (pronounced `ci-nvim`) comes from joining `Cin` and `Nvim` ;)
@@ -16,13 +16,19 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
 1. Neovim >= 0.6
 2. `CiNvim` was made for Linux operating systems. It may or may not support Windows.
 3. Install a [Nerdfont](https://www.nerdfonts.com/font-downloads) for your terminal. I personally use [FiraCode Nerd Font](https://github.com/tonsky/FiraCode), which is the default font set in the editor (scroll down to learn to change defaults).
-4. Install `ripgrep` to Text Search:
+4. Update packages
+
+   ```sh
+   sudo apt update
+   ```
+
+5. Install `ripgrep` to Text Search:
 
    ```sh
    sudo apt install ripgrep
    ```
 
-5. Install `lazygit` to integrate Git in the code editor:
+6. Install `lazygit` to integrate Git in the code editor:
 
    ```sh
     LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -31,11 +37,29 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
     sudo install lazygit /usr/local/bin
     ```
 
-6. Install `xclip` to allow the editor to use the system's clipboard, i.e. allowing you to copy and paste bidirectionally.
+7. Install `xclip` to allow the editor to use the system's clipboard, i.e. allowing you to copy and paste bidirectionally.
 
    ```sh
    sudo apt install xclip
    ```
+
+8. Install `luarocks`
+
+   ```sh
+   sudo apt-get install luarocks
+   ```
+
+9. Install `build-essential` and `clang`
+
+   ```sh
+   sudo apt-get install build-essential clang
+   ```
+
+10. Install `cmake`
+
+    ```sh
+    sudo snap install cmake --classic
+    ```
 
 ### Installation
 
