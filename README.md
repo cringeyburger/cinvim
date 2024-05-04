@@ -95,6 +95,9 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
    2. You can disable `evaluate_template_modifiers` if you do not want to use modifiers. For more information, visit [receive-modifiers/competitest](https://github.com/xeluxee/competitest.nvim?tab=readme-ov-file#receive-modifiers).
 5. That's it! You are now ready to use `CiNvim` for competitive programming.
 
+**NOTE:** After installation, reopen `nvim` shell to get greeted by `Alpha`. If faced with an error, try reopening `nvim`. Sometimes closing and reopening `nvim` shell doesn't work, in that case, try removing the nvim folder from `~/.local/share/nvim` and open `nvim` shell.
+This will download and reinstall all the plugins.
+
 ### Additional Notes
 
 To change default font, go to `...nvim/lua/config/options.lua`, you can change `guifont` to whatever you like.
