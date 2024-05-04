@@ -1,6 +1,6 @@
 # CiNvim
 
-This repository contains the dotfiles of Neovim I use for competitive programming.
+A lightweight, fast code editor for competitive programming.
 
 ## For Whom Is This Repo For?
 
@@ -66,7 +66,10 @@ Combined with [CompetiTest](https://github.com/xeluxee/competitest.nvim) and oth
             ```
 
       5. you can look into different settings from the official [clang-format documentation](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
-4. That's it! You are now ready to use `CiNvim` for competitive programming.
+4. Set the path to your template CP file in `.../nvim/lua/plugins/+utility.lua`, then go to `line 722` or `template_file = { ... }`.
+   1. Set the location to your template file for smooth operation.
+   2. You can disable `evaluate_template_modifiers` if you do not want to use modifiers. For more information, visit [receive-modifiers/competitest](https://github.com/xeluxee/competitest.nvim?tab=readme-ov-file#receive-modifiers).
+5. That's it! You are now ready to use `CiNvim` for competitive programming.
 
 ### Additional Notes
 
