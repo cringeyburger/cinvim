@@ -104,6 +104,76 @@ To change the default font, go to `...nvim/lua/config/options.lua`; you can chan
 
 **Please** look into `/config/keymaps.lua` and explore `whichkey` to learn more about the keybindings.
 
+You can set your own snippets for `LuaSnip` in `+utility` file.
+
+   1. Scroll to  
+
+      ```lua
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dsa/snippets" })
+      ```
+
+   2. To setup custom snippets, follow [this](https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#vs-code) guide from `LuaSnip`
+      1. In short, in your `snippets` directory, you need to create a `package.json` file which looks like this:
+
+         ```json
+         {
+            "name": "example-snippets",
+            "contributes": {
+               "snippets": [
+                  {
+                     "language": [
+                        "all"
+                     ],
+                     "path": "./snippets/all.json"
+                  },
+                  {
+                     "language": [
+                        "lua"
+                     ],
+                     "path": "./lua.json"
+                  }
+               ]
+            }
+         }
+         ```
+
+      2. This file contains the overall info of all snippets linked to it.
+      3. Then `all.json`, the name of the snippets are `all1` and `all2`. This is an example of a general snippet:
+
+         ```json
+         {
+            "snip1": {
+               "prefix": "all1",
+               "body": [
+                  "expands? jumps? $1 $2 !"
+               ]
+            },
+            "snip2": {
+               "prefix": "all2",
+               "body": [
+                  "multi $1",
+                  "line $2",
+                  "snippet$0"
+               ]
+            }
+         }
+         ```
+
+      4. Then `lua.json`, the name of the snippet is `lua`. This is an example of a language-based snippet:
+
+         ```json
+         {
+            "snip1": {
+               "prefix": "lua",
+               "body": [
+                  "lualualua"
+               ]
+            }
+         }
+         ```
+
+      5. After this, just link the path to the directory to the command given in [1.]
+
 Here is the list of all the plugins (excluding dependencies) used:
 
 1. [Lazy.nvim](https://github.com/folke/lazy.nvim): Plugin manager
@@ -120,17 +190,17 @@ Here is the list of all the plugins (excluding dependencies) used:
    1. [clangd_extensions](https://github.com/p00f/clangd_extensions.nvim)
 2. `+filetree`
    1. [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
-5. `+git`
+3. `+git`
    1. [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
    2. [lazygi](https://github.com/kdheepak/lazygit.nvim)
-6. `+lsp`
+4. `+lsp`
    1. [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
    2. [mason](https://github.com/williamboman/mason.nvim)
    3. [lsp_lines](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
    4. [lspsaga](https://github.com/nvimdev/lspsaga.nvim)
    5. [conform](https://github.com/stevearc/conform.nvim)
    6. [nvim-lint](https://github.com/mfussenegger/nvim-lint)
-7. `+ui`
+5. `+ui`
    1. [alpha](https://github.com/goolord/alpha-nvim)
    2. [project](https://github.com/ahmedkhalf/project.nvim)
    3. [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
@@ -141,7 +211,7 @@ Here is the list of all the plugins (excluding dependencies) used:
    8. [hlargs](https://github.com/m-demare/hlargs.nvim)
    9. [dressing](https://github.com/stevearc/dressing.nvim)
    10. [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-8. `+utility`
+6. `+utility`
     1. [popup](https://github.com/nvim-lua/popup.nvim)
     2. [plenary](https://github.com/nvim-lua/plenary.nvim)
     3. [autopairs](https://github.com/windwp/nvim-autopairs)
