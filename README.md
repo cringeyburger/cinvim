@@ -174,6 +174,14 @@ You can set your own snippets for `LuaSnip` in `+utility` file.
 
       5. After this, just link the path to the directory to the command given in [1.]
 
+**NOTE:** YOU MAY NEED to customise the path for `CompetiTest`. Just go to `+utility` and scroll down to:
+
+1. `received_problems_path`
+2. `received_contests_direcory`
+3. `received_contests_problems_path`
+
+The default settings are the ones that I use day to day. Feel free to modify as you like.
+
 Here is the list of all the plugins (excluding dependencies) used:
 
 1. [Lazy.nvim](https://github.com/folke/lazy.nvim): Plugin manager
