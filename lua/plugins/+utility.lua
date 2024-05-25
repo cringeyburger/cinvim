@@ -63,7 +63,9 @@ return {
 
       local kind_icons = require("config.icons").kind
 
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/dsa/snippets" })
+      --require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/dsa/snippets" } }) -- if you want to add custom snippets, you need to specify the path, and then add a comma after it to enable friendly snippets
+      require("luasnip/loaders/from_vscode").lazy_load({ paths = "./snips" })
+      require("luasnip/loaders/from_vscode").lazy_load()
       require("luasnip.loaders.from_snipmate").lazy_load()
 
       local formatting_style = {
@@ -418,11 +420,11 @@ return {
       local icons = require("config.icons")
 
       local error_red = "#F44747"
-      local warning_orange = "#ff8800"
+      local warning_orange = "#FF8800"
       local info_yellow = "#FFCC66"
       local hint_blue = "#4FC1FF"
       local perf_purple = "#7C3AED"
-      -- local note_green = '#10B981'
+      -- local note_green = "#10B981"
 
       todo_comments.setup({
         signs = true, -- show icons in the signs column
@@ -434,13 +436,15 @@ return {
             color = error_red, -- can be a hex color, or a named color (see below)
             alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
             -- signs = false, -- configure signs for some keywords individually
-          },
+          }, --
           TODO = { icon = icons.ui.Check, color = hint_blue, alt = { "TIP" } },
           HACK = { icon = icons.ui.Fire, color = warning_orange },
-          WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "HINT", "HACK" } },
+          WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING" } },
           PERF = { icon = icons.ui.Dashboard, color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
           NOTE = { icon = icons.ui.Note, color = info_yellow, alt = { "INFO" } },
+          TEST = { icon = icons.kind.Property, color = info_yellow },
         },
+        gui_style = { fg = "NONE", bg = "BOLD" },
         -- merge_keywords = true, -- when true, custom keywords will be merged with the defaults
         -- highlighting of the line containing the todo comment
         -- * before: highlights before the keyword (typically comment characters)
@@ -453,7 +457,7 @@ return {
           before = "", -- "fg" or "bg" or empty
           -- keyword = "wide",
           -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-          keyword = "fg",
+          keyword = "bg",
           after = "fg", -- "fg" or "bg" or empty
           pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
           comments_only = true, -- uses treesitter to match keywords in comments only
@@ -560,6 +564,11 @@ return {
           "gitattributes",
           "json",
           "python",
+          "markdown",
+          "markdown_inline",
+          "tsx",
+          "vimdoc",
+          "cmake",
         },
         auto_install = false,
         sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -701,7 +710,7 @@ return {
           typescript = "deno run",
           rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
           c = "cd $dir && gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
-          cpp = "cd $dir && g++ $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+          cpp = "cd $dir && g++ -std=c++17 -O2 -Wall $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
         },
         project = {},
       })
@@ -859,6 +868,13 @@ return {
         open_received_contests = true,
         replace_received_testcases = false,
       })
+    end,
+  },
+  {
+    -- to comment a block of code in visual: select + gb
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
     end,
   },
 }

@@ -26,6 +26,7 @@ keymap("n", "N", "Nzzzv", { silent = true })
 
 -- terminal
 keymap("n", "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<CR>", { desc = "Python" })
+keymap("n", "<leader>tg", "<cmd>lua _GLOW_TOGGLE()<CR>", { desc = "Preview markdown" })
 keymap("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Float" })
 keymap("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", { desc = "Horizontal" })
 keymap("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<CR>", { desc = "Vertical" })
@@ -193,6 +194,12 @@ end, { desc = "Loc list" })
 keymap("n", "<leader>xl", function()
   require("trouble").toggle("lsp_references")
 end, { desc = "Lsp references" })
+keymap("n", "<leader>xt", "<CMD>:TodoTrouble<CR>")
+
+-- markdown
+keymap("n", "<leader>mp", "<Plug>MarkdownPreview", { desc = "Preview Markdown" })
+keymap("n", "<leader>ms", "<Plug>MarkdownPreviewStop", { desc = "Stop Preview Markdown" })
+keymap("n", "<leader>mt", "<cmd>InsertToc<CR>", { desc = "Insert Tocs" })
 
 -- lsp
 keymap("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })

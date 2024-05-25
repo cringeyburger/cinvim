@@ -1,0 +1,35 @@
+{
+  "Boilerplate": {
+    "prefix": "boilerplate",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "#define MOD 1000000007",
+      "#define ll long long",
+      "#define ar array",
+      "",
+      "int n, a, b;",
+      "",
+      "void solve() {",
+      "\t// write your code from here",
+      "\t$1",
+      "}",
+      "",
+      "int main(int argc, char *argv[]) {",
+      "\tios::sync_with_stdio(0);",
+      "\tcin.tie(0);",
+      "",
+      "\tint t;",
+      "\tcin >> t;",
+      "\twhile (t--)",
+      "\t\tsolve();",
+      "}"
+    ],
+    "description": "Boilerplate v1"
+  },
+  "Bits include": {
+    "prefix": "#incb",
+    "body": ["#include <bits/stdc++.h>", "$1"],
+    "description": "Snippet to quickly write bits/stdc++.h"
+  }
+}

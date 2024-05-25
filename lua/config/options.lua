@@ -2,7 +2,7 @@ local options = {
   -- Better colors -> Set termgui colors
   termguicolors = true,
 
-  timeoutlen = 500, -- Time to wait for a mapped sequence to complete (ms)
+  timeoutlen = 1000, -- Time to wait for a mapped sequence to complete (ms)
   updatetime = 200, -- Faster completion (default: 400ms)
 
   -- Number of screen lines to keep above and below cursor

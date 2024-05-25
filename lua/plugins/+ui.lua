@@ -171,21 +171,29 @@ return {
           orange   = "#e3d18a",
           violet   = "#a9a1e1",
           magenta  = "#ae81ff",
-          blue     = "#82aaff	",
+          blue     = "#82aaff",
           red      = "#ff5874",
         },
         kanagawa = {
-          bg       = "#16161D",
-          fg       = "#C8C093",
-          yellow   = "#ecc48d",
-          cyan     = "#7fdbca",
-          darkblue = "#82aaff",
-          green    = "#21c7a8",
-          orange   = "#e3d18a",
-          violet   = "#a9a1e1",
-          magenta  = "#ae81ff",
-          blue     = "#82aaff	",
-          red      = "#ff5874",
+          orange   = "#FFA066",
+          bg       = "#1F1F28",
+          black    = "#090618",
+          blue     = "#7E9CD8",
+          brBlack  = "#727169",
+          brBlue   = "#7FB4CA",
+          brCyan   = "#7AA89F",
+          brGreen  = "#98BB6C",
+          brPurple = "#938AA9",
+          brRed    = "#E82424",
+          brWhite  = "#DCD7BA",
+          brYellow = "#E6C384",
+          cyan     = "#6A9589",
+          fg       = "#DCD7BA",
+          green    = "#76946A",
+          purple   = "#957FB8",
+          red      = "#C34043",
+          white    = "#C8C093",
+          yellow   = "#C0A36E",
         },
         catppuccin_mocha = {
           bg       = "#1E1E2E",
@@ -202,12 +210,38 @@ return {
         }
       }
 
+      colors = colors.kanagawa
+
+      local mode_colors = {
+        n = colors.green,
+        i = colors.blue,
+        v = colors.purple,
+        [""] = colors.purple, -- this is for visual block mode
+        V = colors.purple,
+        c = colors.orange,
+        no = colors.red,
+        s = colors.cyan,
+        S = colors.cyan,
+        [""] = colors.cyan, -- this is for select block mode
+        ic = colors.yellow,
+        R = colors.red,
+        Rv = colors.red,
+        cv = colors.red,
+        ce = colors.red,
+        r = colors.cyan,
+        rm = colors.cyan,
+        ["r?"] = colors.cyan,
+        ["!"] = colors.red,
+        t = colors.orange,
+      }
+
+
       local diagnostics = {
         "diagnostics",
         sources = { "nvim_diagnostic" },
         symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning, info = icons.diagnostics.Information },
         colored = true,
-        update_in_insert = false,
+        update_in_insert = true,
         always_visible = true,
       }
 
@@ -216,12 +250,15 @@ return {
         fmt = function(str)
           return str
         end,
+        color = function()
+          return { bg = mode_colors[vim.fn.mode()] }
+        end
       }
 
       local branch = {
         "branch",
         icon = icons.git.Branch,
-        color = { gui = "bold" },
+        color = { fg = colors.fg, gui = "bold" },
       }
 
       local diff = {
@@ -245,7 +282,7 @@ return {
       local filename = {
         "filename",
         cond = conditions.buffer_not_empty,
-        color = { fg = colors.magenta, gui = "bold" },
+        color = { fg = colors.purple, gui = "bold" },
       }
 
       local encoding = {
@@ -265,6 +302,10 @@ return {
       local location = {
         "location",
         padding = 2,
+        color = function()
+          return { bg = mode_colors[vim.fn.mode()] }
+        end
+
       }
 
       local lsp_name = {
@@ -283,8 +324,6 @@ return {
         end,
         color = { fg = colors.orange, gui = "bold" }
       }
-
-      colors = colors.kanagawa
 
       local config = {
         options = {
@@ -315,7 +354,7 @@ return {
         tabline = {},
         extensions = { "quickfix", "nvim-tree" },
       }
-		  lualine.setup(config)
+      lualine.setup(config)
     end,
   },
   {

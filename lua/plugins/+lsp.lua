@@ -74,6 +74,7 @@ return {
       local regular_servers = {
         -- "lua_ls",
         -- "clangd",
+        "marksman",
         "pyright",
       }
 
@@ -158,6 +159,7 @@ return {
         "lua_ls",
         "clangd",
         "pyright",
+        "marksman",
       }
 
       mason.setup()
@@ -176,6 +178,7 @@ return {
           "ruff",
           "prettier",
           "jsonlint",
+          "markdownlint",
         },
       })
     end,
@@ -320,6 +323,7 @@ return {
           lua = { "stylua" },
           python = { "isort", "black" },
           json = { "prettier" },
+          markdown = { "prettier" },
         },
         format_on_save = {
           lsp_fallback = true, -- if a formatter isn't available, use lsp
@@ -347,6 +351,7 @@ return {
         lua = { "luacheck" },
         python = { "ruff" },
         json = { "jsonlint" },
+        markdown = { "markdownlint" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
