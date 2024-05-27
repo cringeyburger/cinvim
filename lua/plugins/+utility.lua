@@ -56,14 +56,10 @@ return {
     },
     config = function()
       local cmp = require("cmp")
-
       local luasnip = require("luasnip")
-
       local compare = cmp.config.compare
-
       local kind_icons = require("config.icons").kind
 
-      --require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/dsa/snippets" } }) -- if you want to add custom snippets, you need to specify the path, and then add a comma after it to enable friendly snippets
       require("luasnip/loaders/from_vscode").lazy_load({ paths = "./snips" })
       require("luasnip/loaders/from_vscode").lazy_load()
       require("luasnip.loaders.from_snipmate").lazy_load()
@@ -112,16 +108,14 @@ return {
           end,
         },
         mapping = {
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
-          ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
           ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
           ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
           -- Accept currently selected item. If none selected, `select` first item.
           -- Set `select` to `false` to only confirm explicitly selected items.
+          ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<TAB>"] = cmp.mapping.confirm({ select = true }),
           ["<DOWN>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -146,6 +140,22 @@ return {
             "i",
             "s",
           }),
+          ["<TAB>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+              luasnip.jump(1)
+            elseif cmp.visible() then
+              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-TAB>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         },
         formatting = formatting_style,
         sources = {
@@ -566,9 +576,8 @@ return {
           "python",
           "markdown",
           "markdown_inline",
-          "tsx",
           "vimdoc",
-          "cmake",
+          "latex",
         },
         auto_install = false,
         sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -688,12 +697,6 @@ return {
         ["<leader>w"] = { name = "+window" },
         ["<leader>x"] = { name = "+trouble" },
       })
-    end,
-  },
-  {
-    "mrjones2014/smart-splits.nvim",
-    config = function()
-      require("smart-splits").setup({})
     end,
   },
   {

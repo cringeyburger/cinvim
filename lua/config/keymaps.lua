@@ -77,7 +77,7 @@ keymap("n", "<leader>rr", ":RunFile<CR>", { desc = "Run File" })
 keymap("n", "<leader>rc", ":RunClose", { desc = "Close CodeRunner" })
 
 -- Split Windows
-keymap("n", "<C-v>", "<CMD>vsplit<CR>", { desc = "Vertical Split", silent = true })
+keymap("n", "<C-x>", "<CMD>vsplit<CR>", { desc = "Vertical Split", noremap = true, silent = true })
 keymap("n", "<C-e>", "<CMD>split<CR>", { desc = "Horizontal Split", silent = true })
 
 -- Toggle visibility of nvim tree
